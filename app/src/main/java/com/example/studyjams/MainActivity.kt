@@ -1,4 +1,4 @@
-package com.example.quizapp
+package com.example.studyjams
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
-import com.example.quizapp.R
+import com.example.studyjams.R
 
 class MainActivity : ComponentActivity() {
 
@@ -17,7 +17,6 @@ class MainActivity : ComponentActivity() {
     private lateinit var optionsGroup : RadioGroup
     private lateinit var nextButton : Button
 
-    // 🎃 Cute Halloween Questions
     private val questions = arrayOf(
         "What do cute little ghosts use to wash their hair?",
         "Which sweet treat was originally called 'Chicken Feed'?",
@@ -54,7 +53,7 @@ class MainActivity : ComponentActivity() {
             if (!answered) {
                 return@setOnClickListener
             }
-
+            
             if (currentQuestion < questions.size - 1) {
                 currentQuestion++
                 showQuestion()
@@ -87,10 +86,10 @@ class MainActivity : ComponentActivity() {
             Toast.makeText(this, "Pick an answer, don't be scared! 👻", Toast.LENGTH_SHORT).show()
             return false
         }
-
+        
         val selectedButton = findViewById<RadioButton>(selectedId)
         val selectedIndex = options[currentQuestion].indexOf(selectedButton.text.toString())
-
+        
         if (selectedIndex == correctAnswers[currentQuestion]) {
             score++
             Toast.makeText(this, "🍬 Sweet! Correct!", Toast.LENGTH_SHORT).show()
