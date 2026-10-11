@@ -23,21 +23,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    // ⚡ TOTAL OVERRIDE: Tells the build layout engine to completely ignore 
-    // manifest structure errors and proceed with the compiled assembly anyways.
-    applicationVariants.configureEach { variant ->
-        variant.outputs.configureEach {
-            val processManifest = variant.processManifestProvider.get()
-            processManifest.checkManifestInExternalDependencies = false
-        }
-    }
-
     buildTypes {
         release {
-            isMinifyEnabled = false
-            signingConfig = signingConfigs.getByName("debug")
-        }
-        debug {
             isMinifyEnabled = false
         }
     }
