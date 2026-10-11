@@ -1,11 +1,11 @@
-package com.example.quizapp
+package com.example.studyjams
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.activity.ComponentActivity
-import com.example.quizapp.R
+import com.example.studyjams.R
 
 class SplashActivity : ComponentActivity() {
 
