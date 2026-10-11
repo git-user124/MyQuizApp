@@ -8,22 +8,41 @@
     android:padding="24dp">
 
     <TextView
+        android:id="@+id/grimReaperBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="💀  🪓  💀"
+        android:textSize="48sp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
         android:id="@+id/scoreView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="💀 Quiz Finished 💀"
+        android:text="QUIZ EVALUATION"
         android:textSize="32sp"
         android:textStyle="bold"
         android:textColor="#FF9800"
-        android:layout_marginBottom="32dp"/>
+        android:layout_marginBottom="24dp"/>
 
     <TextView
         android:id="@+id/scoreText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gathering your treats..."
+        android:text="Calculating your survival rank..."
         android:textSize="22sp"
         android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/rankText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rank"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#BB86FC"
         android:gravity="center"
         android:layout_marginBottom="48dp"/>
 
@@ -31,7 +50,7 @@
         android:id="@+id/restartButton"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:text="🔮 Play Again"
+        android:text="🔮 ESCAPE AGAIN"
         android:textSize="18sp"
         android:textStyle="bold"
         android:backgroundTint="#FF9800"
