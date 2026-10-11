@@ -1,4 +1,4 @@
-package com.example.quizapp
+package com.example.studyjams
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
-import com.example.quizapp.R
+import com.example.studyjams.R
 
 class ResultActivity : ComponentActivity() {
 
@@ -17,7 +17,6 @@ class ResultActivity : ComponentActivity() {
         val score = intent.getIntExtra("SCORE", 0)
         val total = intent.getIntExtra("TOTAL", 4)
 
-        // Quick fallback announcement so it never crashes!
         Toast.makeText(this, "🎃 Finished! Score: $score / $total", Toast.LENGTH_LONG).show()
     }
 }
