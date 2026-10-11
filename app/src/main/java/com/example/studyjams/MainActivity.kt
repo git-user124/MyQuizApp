@@ -18,22 +18,32 @@ class MainActivity : ComponentActivity() {
     private lateinit var nextButton : Button
 
     private val questions = arrayOf(
-        "What do cute little ghosts use to wash their hair?",
+        "I have a spine, but no bones. I tell stories, but have no voice. What am I?",
+        "The person who makes it has no need of it; the person who buys it has no use for it. What am I?",
+        "I pull you down but never touch you. Without me, you'd fly away into nothingness. What am I?",
+        "I wear a mask, sneak around your code, and steal your memory assets. What am I?",
+        "What do cute little ghosts use to clean their hair?",
         "Which sweet treat was originally called 'Chicken Feed'?",
-        "What is a vampire's favorite cartoon fruit?",
-        "How do you fix a cracked jack-o'-lantern pumpkin?"
+        "What is a vampire's favorite pop-culture fruit?",
+        "How do you fix a cracked jack-o'-lantern pumpkin?",
+        "I look at you, you look at me. I raise my right hand, you raise your left. What am I?",
+        "I have keys but open no locks. I have space but no room. What am I?"
     )
 
     private val options = arrayOf(
+        arrayOf("A skeleton", "A haunted book", "A custom list", "A local map"),
+        arrayOf("A tombstone", "A candy piece", "A wooden coffin", "A scary mask"),
+        arrayOf("A dark ghost", "Gravity force", "A layout view", "A background loop"),
+        arrayOf("A runtime bug", "A local socket", "An intent filter", "A security leak"),
         arrayOf("Scare spray", "Sham-boo!", "Spooky soap", "Ghost mist"),
-        arrayOf("Candy Corn", "Gummy Bears", "Jelly Beans", "Chocolate Kisses"),
+        arrayOf("Candy Corn", "Gummy Bears", "Jelly Beans", "Chocolate"),
         arrayOf("A blood orange", "A scary berry", "A neck-tarine", "A boo-nana"),
-        arrayOf("With a pumpkin patch!", "With monster glue", "With spooky tape", "With ghost thread")
+        arrayOf("With a pumpkin patch!", "With monster glue", "With spooky tape", "With ghost thread"),
+        arrayOf("A real ghost", "A clean mirror", "A shadow form", "A canvas drawing"),
+        arrayOf("A piano view", "A system box", "A storage path", "A keyboard panel")
     )
 
-    private val correctAnswers = intArrayOf(
-        1, 0, 2, 0
-    )
+    private val correctAnswers = intArrayOf(1, 2, 1, 0, 1, 0, 2, 0, 1, 3)
     private var currentQuestion = 0
     private var score = 0
 
@@ -50,9 +60,7 @@ class MainActivity : ComponentActivity() {
 
         nextButton.setOnClickListener {
             val answered = checkAnswer()
-            if (!answered) {
-                return@setOnClickListener
-            }
+            if (!answered) return@setOnClickListener
             
             if (currentQuestion < questions.size - 1) {
                 currentQuestion++
@@ -65,7 +73,7 @@ class MainActivity : ComponentActivity() {
 
     private fun showQuestion() {
         questionText.text = questions[currentQuestion]
-        questionNumberText.text = "🎃 Spooky Level: ${currentQuestion + 1}/${questions.size}"
+        questionNumberText.text = "🕯️ Spooky Level: ${currentQuestion + 1}/${questions.size}"
 
         val radioButtons = arrayOf(
             findViewById<RadioButton>(R.id.option1),
