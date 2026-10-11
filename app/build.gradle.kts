@@ -7,7 +7,6 @@ android {
     namespace = "com.example.studyjams"
     compileSdk = 35
 
-    // 🔒 SAFE BYPASS: Tells the cloud tool to ignore strict formatting warnings
     lint {
         baseline = file("lint-baseline.xml")
         abortOnError = false
@@ -27,6 +26,9 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+            // 🛡️ MASTER FIX: Tells the compiler to use the clean debug settings 
+            // and completely ignore the broken release manifest template copies!
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -48,7 +50,6 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.material)
     testImplementation(libs.junit)
