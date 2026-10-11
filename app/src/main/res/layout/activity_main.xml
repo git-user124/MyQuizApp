@@ -16,13 +16,12 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="16dp"
-        android:layout_gravity="end"/>
+        android:layout_gravity="right"/>
 
     <TextView
         android:id="@+id/questionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Question text appears here..."
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -41,7 +40,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#E0E0E0"
-            android:buttonTint="#FF9800"
             android:textSize="18sp"
             android:padding="12dp"/>
 
@@ -50,7 +48,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#E0E0E0"
-            android:buttonTint="#FF9800"
             android:textSize="18sp"
             android:padding="12dp"/>
 
@@ -59,7 +56,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#E0E0E0"
-            android:buttonTint="#FF9800"
             android:textSize="18sp"
             android:padding="12dp"/>
 
@@ -68,7 +64,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#E0E0E0"
-            android:buttonTint="#FF9800"
             android:textSize="18sp"
             android:padding="12dp"/>
     </RadioGroup>
