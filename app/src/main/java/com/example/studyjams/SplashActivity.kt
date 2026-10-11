@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.activity.ComponentActivity
-import com.example.studyjams.R
+import com.example.quizapp.R
 
 class SplashActivity : ComponentActivity() {
 
