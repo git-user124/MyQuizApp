@@ -27,9 +27,6 @@ android {
         release {
             isMinifyEnabled = false
         }
-        debug {
-            isMinifyEnabled = false
-        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -38,11 +35,6 @@ android {
     buildFeatures {
         compose = true
     }
-}
-
-// 🛡️ MASTER BYPASS: Forces the compiler to ignore manifest merger check errors completely!
-tasks.withType<com.android.build.gradle.tasks.ProcessApplicationManifest> {
-    checkManifestInExternalDependencies = false
 }
 
 dependencies {
