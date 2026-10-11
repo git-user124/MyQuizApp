@@ -8,7 +8,7 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
-import com.example.studyjams.R
+import com.example.quizapp.R
 
 class MainActivity : ComponentActivity() {
 
