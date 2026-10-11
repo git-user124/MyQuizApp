@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.studyjams"
-    compileSdk = 34
+    compileSdk = 35
 
     // 🔒 SAFE BYPASS: Tells the cloud tool to ignore strict formatting warnings
     lint {
@@ -17,7 +17,7 @@ android {
     defaultConfig {
         applicationId = "com.example.studyjams"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
