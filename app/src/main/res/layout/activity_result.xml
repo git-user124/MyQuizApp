@@ -1,58 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://android.com"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@drawable/background"
+    android:background="#120D1C"
     android:padding="24dp">
 
     <TextView
-        android:id="@+id/grimReaperBanner"
-        android:layout_width="wrap_content"
+        android:id="@+id/quizTitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="💀  🪓  💀"
-        android:textSize="48sp"
-        android:layout_marginBottom="16dp"/>
-
-    <TextView
-        android:id="@+id/scoreView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="QUIZ EVALUATION"
-        android:textSize="32sp"
+        android:text="🎃 Halloween Quiz Results"
+        android:textColor="#FF9F43"
+        android:textSize="28sp"
         android:textStyle="bold"
-        android:textColor="#FF9800"
-        android:layout_marginBottom="24dp"/>
+        android:gravity="center"
+        android:padding="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/scoreText"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/scoreText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Calculating your survival rank..."
-        android:textSize="22sp"
+        android:text="Your Score: 0/10"
         android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:layout_marginBottom="16dp"/>
-
-    <TextView
-        android:id="@+id/rankText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rank"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#BB86FC"
         android:gravity="center"
-        android:layout_marginBottom="48dp"/>
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/quizTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rankingText" />
+
+    <TextView
+        android:id="@+id/rankingText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Your spooky ranking awaits!"
+        android:textColor="#D6C8E8"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/scoreText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/restartButton" />
 
     <Button
         android:id="@+id/restartButton"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="🔮 ESCAPE AGAIN"
-        android:textSize="18sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Play Again 🎃"
+        android:textColor="#120D1C"
         android:textStyle="bold"
-        android:backgroundTint="#FF9800"
-        android:textColor="#000000"/>
-</LinearLayout>
+        android:textSize="16sp"
+        android:backgroundTint="#FF9F43"
+        android:padding="14dp"
+        app:layout_constraintTop_toBottomOf="@id/rankingText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
