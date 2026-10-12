@@ -1,3 +1,4 @@
+
 package com.example.studyjams
 
 import android.content.Intent
@@ -5,18 +6,30 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.activity.ComponentActivity
-import com.example.studyjams.R
 
 class SplashActivity : ComponentActivity() {
 
+    private val handler = Handler(Looper.getMainLooper())
+
+    private val navigateToQuiz = Runnable {
+        if (!isFinishing && !isDestroyed) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_splash)
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }, 1500)
+        window.setBackgroundDrawableResource(android.R.color.black)
+
+        handler.postDelayed(navigateToQuiz, 3000)
+    }
+
+    override fun onDestroy() {
+        handler.removeCallbacks(navigateToQuiz)
+        super.onDestroy()
     }
 }
