@@ -4,35 +4,57 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.ComponentActivity
-import com.example.studyjams.R
+import androidx.appcompat.app.AppCompatActivity
 
-class ResultActivity : ComponentActivity() {
+class ResultActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        val quizTitle = findViewById<TextView>(R.id.quizTitle)
+        val scoreText = findViewById<TextView>(R.id.scoreText)
+        val rankingText = findViewById<TextView>(R.id.rankingText)
+        val restartButton = findViewById<Button>(R.id.restartButton)
+
         val score = intent.getIntExtra("SCORE", 0)
         val total = intent.getIntExtra("TOTAL", 10)
 
-        val scoreText = findViewById<TextView>(R.id.scoreText)
-        val rankText = findViewById<TextView>(R.id.rankText)
-        val restartButton = findViewById<Button>(R.id.restartButton)
+        val safeTotal = total.coerceAtLeast(0)
+        val safeScore = score.coerceIn(0, safeTotal)
 
-        scoreText.text = "🍬 You collected $score out of $total treats! 🎃"
+        quizTitle.text = "🎃 Halloween Quiz Results"
+        scoreText.text = "Your Score: $safeScore/$safeTotal"
 
-        // 🧠 Pro-Level Ranking Logic Evaluation System
-        if (score >= 8) {
-            rankText.text = "⚡ RANK: IMMORTAL SPOOKY PRO! 💀\n(You mastered every dark puzzle perfectly!)"
-        } else if (score >= 5) {
-            rankText.text = "🔮 RANK: SURVIVED APPRENTICE! 🧟\n(Good effort, you escaped the graveyard layout!)"
+        val percentage = if (safeTotal > 0) {
+            safeScore * 100 / safeTotal
         } else {
-            rankText.text = "🦇 RANK: GRAVEYARD FOOD! 🪦\n(The bugs caught you! Try again!)"
+            0
+        }
+
+        rankingText.text = when {
+            safeTotal == 0 ->
+                "The spooky challenge has no questions yet! 👻"
+
+            safeScore == safeTotal ->
+                "🏆 ABSOLUTE SPOOKY LEGEND! You aced every question!"
+
+            percentage >= 80 ->
+                "🧙 Amazing work! You're a Halloween quiz pro!"
+
+            percentage >= 50 ->
+                "🦇 Good job! You're getting the hang of the spooky stuff!"
+
+            else ->
+                "👻 The ghosts got you this time! Try again and beat your score!"
         }
 
         restartButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+
             startActivity(intent)
             finish()
         }
